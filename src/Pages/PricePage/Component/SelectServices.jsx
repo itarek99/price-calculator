@@ -6,7 +6,7 @@ import LeftSide from './LeftSide';
 const SelectServices = ({ services, selectedService, setSelectedService }) => {
   return (
     <div className='grid grid-cols-12 mt-12'>
-      <LeftSide>
+      <LeftSide listNumber={1}>
         <p className='font-semibold'>Select Your Services</p>
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>

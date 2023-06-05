@@ -3,7 +3,7 @@ import LeftSide from './LeftSide';
 const TurnaroundTime = ({ difficulty, selectedService, selectedPlan, setSelectedPlan }) => {
   return (
     <div className='grid grid-cols-12 mt-10'>
-      <LeftSide>
+      <LeftSide listNumber={3}>
         <p className='font-semibold'>Turnaround Time</p>
         <p className='text-sm'>Save money if you have time to wait.</p>
       </LeftSide>

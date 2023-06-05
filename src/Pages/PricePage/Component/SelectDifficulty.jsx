@@ -10,63 +10,59 @@ const SelectDifficulty = ({ difficulty, setDifficulty }) => {
   return (
     <div className='grid grid-cols-12 mt-8'>
       <div className='col-span-12 xl:col-span-5'>
-        <div>
-          <div className='border xl:w-9/12 bg-white p-5 rounded-full flex items-center gap-4 relative mb-3'>
-            <div className='h-10 w-10 bg-orange-600 rounded-full text-white flex justify-center items-center'>
-              <i className='fa-solid fa-check'></i>
-            </div>
-            <div className=''>
-              <p className='font-semibold'>Select Difficulty</p>
-              <p className='text-sm'>What edit do you want to try?</p>
-            </div>
-
-            <div className='absolute top-24 -left-6 transform -scale-x-100 -rotate-[130deg] xl:scale-100 xl:rotate-0 z-10 xl:-right-24 xl:left-auto xl:-top-4'>
-              <img src={arrow} alt='' />
-            </div>
+        <div className='border bg-white border-primary xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6'>
+          <div className='h-10 w-10 bg-primary rounded-full text-white flex justify-center items-center'>
+            <span className='text-lg font-bold'>2</span>
+          </div>
+          <div className=''>
+            <p className='font-semibold'>Select Difficulty</p>
+            <p className='text-sm'>What edit do you want to try?</p>
           </div>
 
-          <div>
-            <div className='border bg-white ml-12 xl:ml-16 xl:mr-36 p-6 mb-7 rounded-lg'>
-              <div className='flex items-center gap-3'>
-                <input
-                  checked={difficulty === 'basic'}
-                  onChange={handleRadioChange}
-                  value='basic'
-                  id='basic'
-                  name='difficulty'
-                  type='radio'
-                />
-                <label htmlFor='basic' className='pt-1.5 text-gray-600'>
-                  Basic
-                </label>
-              </div>
-              <div className='flex items-center gap-3'>
-                <input
-                  checked={difficulty === 'medium'}
-                  onChange={handleRadioChange}
-                  value='medium'
-                  id='medium'
-                  name='difficulty'
-                  type='radio'
-                />
-                <label htmlFor='medium' className='pt-1.5 text-gray-600'>
-                  Medium
-                </label>
-              </div>
-              <div className='flex items-center gap-3'>
-                <input
-                  checked={difficulty === 'complicated'}
-                  onChange={handleRadioChange}
-                  value='complicated'
-                  id='complicated'
-                  name='difficulty'
-                  type='radio'
-                />
-                <label htmlFor='complicated' className='pt-1.5 text-gray-600'>
-                  Complicated
-                </label>
-              </div>
-            </div>
+          <div className='absolute top-24 -left-6 transform -scale-x-100 -rotate-[130deg] xl:scale-100 xl:rotate-0 z-10 xl:-right-24 xl:left-auto xl:-top-4'>
+            <img src={arrow} alt='' />
+          </div>
+        </div>
+
+        <div className='border bg-white ml-12 xl:ml-16 xl:mr-36 p-6 mb-7 rounded-lg'>
+          <div className='flex items-center gap-3'>
+            <input
+              checked={difficulty === 'basic'}
+              onChange={handleRadioChange}
+              value='basic'
+              id='basic'
+              name='difficulty'
+              type='radio'
+            />
+            <label htmlFor='basic' className='pt-1.5 text-gray-600'>
+              Basic
+            </label>
+          </div>
+          <div className='flex items-center gap-3'>
+            <input
+              checked={difficulty === 'medium'}
+              onChange={handleRadioChange}
+              value='medium'
+              id='medium'
+              name='difficulty'
+              type='radio'
+            />
+            <label htmlFor='medium' className='pt-1.5 text-gray-600'>
+              Medium
+            </label>
+          </div>
+          <div className='flex items-center gap-3'>
+            <input
+              checked={difficulty === 'complicated'}
+              onChange={handleRadioChange}
+              value='complicated'
+              id='complicated'
+              name='difficulty'
+              type='radio'
+            />
+            <label htmlFor='complicated' className='pt-1.5 text-gray-600'>
+              Complicated
+            </label>
           </div>
         </div>
       </div>

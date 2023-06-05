@@ -3,7 +3,7 @@ import LeftSide from './LeftSide';
 const UploadFile = () => {
   return (
     <div className='grid grid-cols-12 mt-8'>
-      <LeftSide>
+      <LeftSide listNumber={5}>
         <p className='font-semibold'>Upload Files</p>
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>

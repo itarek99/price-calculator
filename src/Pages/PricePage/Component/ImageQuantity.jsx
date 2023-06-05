@@ -5,7 +5,7 @@ const ImageQuantity = ({ selectedPlan }) => {
   const [quantity, setQuantity] = useState(0);
   return (
     <div className='grid grid-cols-12 mt-10'>
-      <LeftSide>
+      <LeftSide listNumber={4}>
         <p className='font-semibold'>Image Quantity</p>
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>
