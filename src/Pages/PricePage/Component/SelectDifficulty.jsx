@@ -1,89 +1,66 @@
 import arrow from '../../../assets/arrow_right.png';
-import clipping_path_1 from '../../../assets/clipping_path_sample_1.jpg';
-import clipping_path_2 from '../../../assets/clipping_path_sample_2.png';
 
-const SelectDifficulty = ({ difficulty, setDifficulty }) => {
+const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
+  const difficultyPlans = Object.keys(selectedService.difficulty || {});
   const handleRadioChange = (event) => {
     setDifficulty(event.target.value);
   };
 
   return (
     <div className='grid grid-cols-12 mt-8'>
-      <div className='col-span-12 xl:col-span-5'>
-        <div className='border bg-white border-primary xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6'>
-          <div className='h-10 w-10 bg-primary rounded-full text-white flex justify-center items-center'>
-            <span className='text-lg font-bold'>2</span>
-          </div>
-          <div className=''>
-            <p className='font-semibold'>Select Difficulty</p>
-            <p className='text-sm'>What edit do you want to try?</p>
-          </div>
+      {selectedService.difficulty && (
+        <>
+          <div className='col-span-12 xl:col-span-5'>
+            <div className='border bg-white border-primary xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6'>
+              <div className='h-10 w-10 bg-primary rounded-full text-white flex justify-center items-center'>
+                <span className='text-lg font-bold'>2</span>
+              </div>
+              <div className=''>
+                <p className='font-semibold'>Select Difficulty</p>
+                <p className='text-sm'>What edit do you want to try?</p>
+              </div>
 
-          <div className='absolute top-24 -left-6 transform -scale-x-100 -rotate-[130deg] xl:scale-100 xl:rotate-0 z-10 xl:-right-24 xl:left-auto xl:-top-4'>
-            <img src={arrow} alt='' />
-          </div>
-        </div>
-
-        <div className='border bg-white ml-12 xl:ml-16 xl:mr-36 p-6 mb-7 rounded-lg'>
-          <div className='flex items-center gap-3'>
-            <input
-              checked={difficulty === 'basic'}
-              onChange={handleRadioChange}
-              value='basic'
-              id='basic'
-              name='difficulty'
-              type='radio'
-            />
-            <label htmlFor='basic' className='pt-1.5 text-gray-600'>
-              Basic
-            </label>
-          </div>
-          <div className='flex items-center gap-3'>
-            <input
-              checked={difficulty === 'medium'}
-              onChange={handleRadioChange}
-              value='medium'
-              id='medium'
-              name='difficulty'
-              type='radio'
-            />
-            <label htmlFor='medium' className='pt-1.5 text-gray-600'>
-              Medium
-            </label>
-          </div>
-          <div className='flex items-center gap-3'>
-            <input
-              checked={difficulty === 'complicated'}
-              onChange={handleRadioChange}
-              value='complicated'
-              id='complicated'
-              name='difficulty'
-              type='radio'
-            />
-            <label htmlFor='complicated' className='pt-1.5 text-gray-600'>
-              Complicated
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div className='col-span-12 xl:col-span-7'>
-        <div className='grid grid-cols-3 bg-white px-5 xl:px-16 py-5 xl:py-8 rounded-lg gap-4 h-44 xl:h-80 overflow-hidden'>
-          <div className='col-span-1 flex flex-col justify-between'>
-            <div className='mb-3'>
-              <img className='h-16 xl:h-28 w-full' src={clipping_path_2} alt='Work sample' />
+              <div className='absolute top-24 -left-6 transform -scale-x-100 -rotate-[130deg] xl:scale-100 xl:rotate-0 z-10 xl:-right-24 xl:left-auto xl:-top-4'>
+                <img src={arrow} alt='' />
+              </div>
             </div>
-            <div>
-              <img className='h-16 xl:h-28 w-full' src={clipping_path_1} alt='Work sample' />
+
+            <div className='border bg-white ml-12 xl:ml-16 xl:mr-36 p-6 mb-7 rounded-lg'>
+              {difficultyPlans.map((item, index) => (
+                <div key={index} className='flex items-center mb-1.5'>
+                  <input
+                    onChange={handleRadioChange}
+                    checked={difficulty === item}
+                    value={item}
+                    id={item}
+                    name='difficulty'
+                    type='radio'
+                    className='hidden'
+                  />
+                  <label
+                    htmlFor={item}
+                    className={`flex items-center xl:cursor-pointer select-none ${
+                      difficulty === item ? 'text-primary font-medium' : 'text-grey'
+                    }`}
+                  >
+                    <span
+                      className={`w-4 h-4 rounded-full mr-2.5 border-2 ${
+                        difficulty === item ? 'border-primary bg-primary' : 'border-grey'
+                      }`}
+                    ></span>
+                    <span className='xl:mt-0.5 capitalize'>{item}</span>
+                  </label>
+                </div>
+              ))}
             </div>
           </div>
-          <div className='col-span-2'>
-            <div>
-              <img className='object-fill h-36 xl:h-64 w-full' src={clipping_path_2} alt='Work sample' />
+          <div className='col-span-12 xl:col-span-7'>
+            <div className=' bg-white p-4 xl:p-8 rounded-lg gap-4 overflow-hidden'>
+              <img className='' src={selectedService.difficulty[difficulty].thumbnail} alt='Work sample' />
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 };

@@ -8,20 +8,20 @@ import SelectDifficulty from './Component/SelectDifficulty';
 import SelectServices from './Component/SelectServices';
 import TurnaroundTime from './Component/TurnaroundTime';
 import UploadFile from './Component/UploadFile';
-// #
+
 const PricePage = () => {
   const [selectedService, setSelectedService] = useState(services[0]);
   const [difficulty, setDifficulty] = useState('basic');
   const [selectedPlan, setSelectedPlan] = useState({});
 
   useEffect(() => {
-    setSelectedPlan(selectedService.pricing[difficulty][0]);
+    setSelectedPlan(selectedService.difficulty ? selectedService.difficulty[difficulty].pricing[0] : null);
   }, [selectedService, difficulty]);
 
   return (
     <>
       <Heading />
-      <main className='mt-12 bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[38%]  via-[#F7F9FF] via-[38%] to-[#F7F9FF] to-100% py-16 xl:mt-20'>
+      <main className='mt-12 bg-[#4360b8] xl:bg-gradient-to-r from-[#FCFCFC] from-[38%]  via-[#F7F9FF] via-[38%] to-[#3e5dbb] to-100% py-16 xl:mt-20 '>
         <div className='container mx-auto px-4 '>
           <div>
             <h2 className='text-3xl font-bold'>Get Your Estimate</h2>
@@ -32,14 +32,14 @@ const PricePage = () => {
             selectedService={selectedService}
             setSelectedService={setSelectedService}
           />
-          <SelectDifficulty difficulty={difficulty} setDifficulty={setDifficulty} />
+          <SelectDifficulty selectedService={selectedService} difficulty={difficulty} setDifficulty={setDifficulty} />
           <TurnaroundTime
             difficulty={difficulty}
             selectedService={selectedService}
             selectedPlan={selectedPlan}
             setSelectedPlan={setSelectedPlan}
           />
-          <ImageQuantity selectedPlan={selectedPlan} />
+          <ImageQuantity selectedService={selectedService} selectedPlan={selectedPlan} />
           <UploadFile />
         </div>
       </main>

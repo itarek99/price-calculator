@@ -17,7 +17,7 @@ const SelectServices = ({ services, selectedService, setSelectedService }) => {
             <div className='relative mt-1'>
               <Listbox.Button className='relative w-full cursor-default rounded-lg py-4 px-4  xl:py-7 xl:px-8 text-left bg-white border-gray-300'>
                 <span className='block truncate'>{selectedService.name}</span>
-                <span className='pointer-events-none absolute inset-y-0 right-4 flex items-center pr-2'>
+                <span className='pointer-events-none absolute inset-y-0 right-1 xl:right-4 flex items-center pr-2'>
                   <HiChevronUpDown className='h-8 w-8 text-gray-400' aria-hidden='true' />
                 </span>
               </Listbox.Button>

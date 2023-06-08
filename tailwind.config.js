@@ -13,6 +13,9 @@ export default {
         secondary: {
           DEFAULT: '#FF8643',
         },
+        grey: {
+          DEFAULT: '#969696',
+        },
       },
       scale: {
         '-100': '-1',
