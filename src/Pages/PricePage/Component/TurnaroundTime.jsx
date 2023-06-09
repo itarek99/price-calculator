@@ -15,25 +15,25 @@ const TurnaroundTime = ({ difficulty, selectedService, selectedPlan, setSelected
               {selectedService?.difficulty[difficulty]?.pricing.map((price, priceIdx) => (
                 <div key={priceIdx} className='flex items-centers basis-1/2'>
                   <input
-                    checked={selectedPlan?.title === price?.title}
+                    checked={selectedPlan?.time === price?.time}
                     onChange={() => setSelectedPlan(price)}
-                    id={price?.title + priceIdx}
+                    id={price?.time + priceIdx}
                     name='price'
                     type='radio'
                     className='hidden'
                   />
                   <label
-                    htmlFor={price?.title + priceIdx}
+                    htmlFor={price?.time + priceIdx}
                     className={`flex items-center xl:cursor-pointer select-none ${
-                      selectedPlan?.title === price?.title ? 'text-primary font-medium' : 'text-grey'
+                      selectedPlan?.time === price?.time ? 'text-primary font-medium' : 'text-grey'
                     }`}
                   >
                     <span
                       className={`w-4 h-4 rounded-full mr-2.5 border-2 ${
-                        selectedPlan?.title === price?.title ? 'border-primary bg-primary' : 'border-grey'
+                        selectedPlan?.time === price?.time ? 'border-primary bg-primary' : 'border-grey'
                       }`}
                     ></span>
-                    <span className=' xl:mt-0.5 capitalize'>{price?.title}</span>
+                    <span className=' xl:mt-0.5 capitalize'>{price?.time + ' $' + price?.price + ' USD'}</span>
                   </label>
                 </div>
               ))}

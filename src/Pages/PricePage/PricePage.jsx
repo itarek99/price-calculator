@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import services from '../../data/services';
 import CTASection from './Component/CTASection';
+import CustomQuote from './Component/CustomQuote';
 import FAQSection from './Component/FAQSection';
 import Heading from './Component/Heading';
 import ImageQuantity from './Component/ImageQuantity';
@@ -32,15 +33,25 @@ const PricePage = () => {
             selectedService={selectedService}
             setSelectedService={setSelectedService}
           />
-          <SelectDifficulty selectedService={selectedService} difficulty={difficulty} setDifficulty={setDifficulty} />
-          <TurnaroundTime
-            difficulty={difficulty}
-            selectedService={selectedService}
-            selectedPlan={selectedPlan}
-            setSelectedPlan={setSelectedPlan}
-          />
-          <ImageQuantity selectedService={selectedService} selectedPlan={selectedPlan} />
-          <UploadFile />
+          {selectedService.difficulty ? (
+            <>
+              <SelectDifficulty
+                selectedService={selectedService}
+                difficulty={difficulty}
+                setDifficulty={setDifficulty}
+              />
+              <TurnaroundTime
+                difficulty={difficulty}
+                selectedService={selectedService}
+                selectedPlan={selectedPlan}
+                setSelectedPlan={setSelectedPlan}
+              />
+              <ImageQuantity selectedService={selectedService} selectedPlan={selectedPlan} />
+              <UploadFile />
+            </>
+          ) : (
+            <CustomQuote />
+          )}
         </div>
       </main>
       <FAQSection />
