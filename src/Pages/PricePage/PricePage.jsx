@@ -42,7 +42,7 @@ const PricePage = () => {
     <>
       <Heading />
       <main className='mt-12 bg-[#4360b8] xl:bg-gradient-to-r from-[#FCFCFC] from-[38%]  via-[#F7F9FF] via-[38%] to-[#3e5dbb] to-100% py-16 xl:mt-20 '>
-        <div className='container mx-auto px-4'>
+        <div className='container mx-auto px-4 xl:px-0'>
           <div>
             <h2 className='text-3xl font-bold'>Get Your Estimate</h2>
             <p className='text-sm text-gray-700'>We Ensure You The Best Quality & Rate</p>

@@ -54,7 +54,7 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
               ))}
             </div>
           </div>
-          <div className='col-span-12 xl:col-span-7'>
+          <div className='col-span-12 xl:col-span-5'>
             {/* <div className=' bg-white p-4 xl:p-8 rounded-lg gap-4 object-contain h-60'>
               <img
                 className='block object-contain mx-auto'
@@ -63,9 +63,12 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
               />
             </div> */}
 
-            <div className='bg-white h-64 p-4 rounded-lg mt-4 xl:mt-0'>
-              <div className='h-full flex justify-center items-center flex-col'>
-                <img className='w-full object-contain min-h-0' src={selectedService.difficulty[difficulty].thumbnail} />
+            <div className='bg-white p-6 rounded-lg mt-4 xl:mt-0'>
+              <div className='h-full flex items-center flex-col'>
+                <img
+                  className='object-contain min-h-0 border border-gray-700'
+                  src={selectedService.difficulty[difficulty].thumbnail}
+                />
               </div>
             </div>
           </div>
