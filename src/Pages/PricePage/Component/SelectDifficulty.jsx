@@ -7,7 +7,7 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
   };
 
   return (
-    <div className='grid grid-cols-12 mt-8'>
+    <div className='grid grid-cols-12 mt-12'>
       {selectedService.difficulty && (
         <>
           <div className='col-span-12 xl:col-span-5'>
@@ -25,7 +25,7 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
               </div>
             </div>
 
-            <div className='border bg-white ml-12 xl:ml-16 xl:mr-36 p-6 mb-7 rounded-lg'>
+            <div className='border bg-white ml-12 xl:ml-16 xl:mr-36 p-6 rounded-lg'>
               {difficultyPlans.map((item, index) => (
                 <div key={index} className='flex items-center mb-1.5'>
                   <input
@@ -63,7 +63,7 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
               />
             </div> */}
 
-            <div className='bg-white h-64 p-4 xl:p-8 rounded-lg'>
+            <div className='bg-white h-64 p-4 rounded-lg mt-4 xl:mt-0'>
               <div className='h-full flex justify-center items-center flex-col'>
                 <img className='w-full object-contain min-h-0' src={selectedService.difficulty[difficulty].thumbnail} />
               </div>

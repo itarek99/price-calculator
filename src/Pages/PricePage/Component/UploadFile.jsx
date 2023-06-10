@@ -1,8 +1,8 @@
 import { HiXMark } from 'react-icons/hi2';
 import LeftSide from './LeftSide';
-const UploadFile = () => {
+const UploadFile = ({ handlePlaceOrder, setImageUrl, setUploadedPhoto, setMessage }) => {
   return (
-    <div className='grid grid-cols-12 mt-8'>
+    <div className='grid grid-cols-12 mt-12'>
       <LeftSide listNumber={5}>
         <p className='font-semibold'>Upload Files</p>
         <p className='text-sm'>What edit do you want to try?</p>
@@ -17,6 +17,7 @@ const UploadFile = () => {
             <div className='flex '>
               {/* <label htmlFor='imageUpload' className='border p-3 py-6 grow rounded-l-lg bg-white'></label> */}
               <input
+                onChange={(e) => setUploadedPhoto(e.target.value)}
                 id='imageUpload'
                 type='file'
                 multiple
@@ -33,6 +34,7 @@ const UploadFile = () => {
             </label>
             <div className='flex'>
               <input
+                onChange={(e) => setImageUrl(e.target.value)}
                 placeholder='Please paste your image URL here....'
                 id='imageUpload'
                 type='text'
@@ -46,6 +48,7 @@ const UploadFile = () => {
             </label>
             <div className='flex'>
               <textarea
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder='Type your instruction here...'
                 id='imageUpload'
                 className='border text-sm xl:text-base p-3 grow rounded-lg'
@@ -55,7 +58,10 @@ const UploadFile = () => {
         </div>
 
         <div className='mt-12 xl:mt-16'>
-          <button className='w-full xl:w-auto uppercase bg-[#2970FB] text-white font-bold text-xl py-4 px-10 rounded-lg'>
+          <button
+            onClick={handlePlaceOrder}
+            className='w-full xl:w-auto uppercase bg-[#2970FB] text-white font-bold text-xl py-4 px-10 rounded-lg'
+          >
             Place Order
           </button>
         </div>

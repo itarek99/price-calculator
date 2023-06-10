@@ -14,10 +14,29 @@ const PricePage = () => {
   const [selectedService, setSelectedService] = useState(services[0]);
   const [difficulty, setDifficulty] = useState('basic');
   const [selectedPlan, setSelectedPlan] = useState({});
+  const [uploadedPhoto, setUploadedPhoto] = useState();
+  const [imageUrl, setImageUrl] = useState('');
+  const [message, setMessage] = useState('');
+  const [totalImage, setTotalImage] = useState(0);
 
   useEffect(() => {
     setSelectedPlan(selectedService.difficulty ? selectedService.difficulty[difficulty].pricing[0] : null);
   }, [selectedService, difficulty]);
+
+  const handlePlaceOrder = () => {
+    const orderInfo = {
+      selectedService,
+      difficulty,
+      selectedPlan,
+      uploadedPhoto,
+      imageUrl,
+      message,
+      totalImage,
+      totalPrice: selectedPlan.price * totalImage,
+    };
+
+    console.log(orderInfo);
+  };
 
   return (
     <>
@@ -46,8 +65,18 @@ const PricePage = () => {
                 selectedPlan={selectedPlan}
                 setSelectedPlan={setSelectedPlan}
               />
-              <ImageQuantity selectedService={selectedService} selectedPlan={selectedPlan} />
-              <UploadFile />
+              <ImageQuantity
+                totalImage={totalImage}
+                setTotalImage={setTotalImage}
+                selectedService={selectedService}
+                selectedPlan={selectedPlan}
+              />
+              <UploadFile
+                handlePlaceOrder={handlePlaceOrder}
+                setImageUrl={setImageUrl}
+                setUploadedPhoto={setUploadedPhoto}
+                setMessage={setMessage}
+              />
             </>
           ) : (
             <CustomQuote />

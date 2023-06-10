@@ -6,6 +6,30 @@ import multi_clipping_path_complicated from '../assets/services/Complex_Multi_Cl
 import multi_clipping_path_medium from '../assets/services/Medium_Multi_Clipping_Path.png';
 import multi_clipping_path_basic from '../assets/services/Simple_Multi_Clipping_Path.png';
 
+import background_removal_complicated from '../assets/services/Complex_Background_Removal_Service.png';
+import background_removal_medium from '../assets/services/Medium_Background_Removal_Service.png';
+import background_removal_basic from '../assets/services/Simple_Background_Removal_Service.png';
+
+import image_masking_complicated from '../assets/services/Complex-Image-Masking-Service.png';
+import image_masking_medium from '../assets/services/Medium-Image-Masking-Service.png';
+import image_masking_basic from '../assets/services/Simple-Image-Masking-Service.png';
+
+import photoshop_shadow_complicated from '../assets/services/Complex-Photoshop-Shadow-Services.png';
+import photoshop_shadow_medium from '../assets/services/Medium-Photoshop-Shadow-Services.png';
+import photoshop_shadow_basic from '../assets/services/Simple-Photoshop-Shadow-Services.png';
+
+import photo_retouching_complicated from '../assets/services/Complex-Phot-Retouching-Service.png';
+import photo_retouching_medium from '../assets/services/Medium-Phot-Retouching-Service.png';
+import photo_retouching_basic from '../assets/services/Simple-Phot-Retouching-Service.png';
+
+import ghost_mannequin_complicated from '../assets/services/Complex-Ghost-Mannequin-Service.png';
+import ghost_mannequin_medium from '../assets/services/Medium-Ghost-Mannequin-Service.png';
+import ghost_mannequin_basic from '../assets/services/Simple-Ghost-Mannequin-Service.png';
+
+import color_correction_complicated from '../assets/services/Complex-Color-Correction-Services.png';
+import color_correction_medium from '../assets/services/Medium-Color-Correction-Services.png';
+import color_correction_basic from '../assets/services/Simple-Color-Correction-Services.png';
+
 const services = [
   {
     name: 'Clipping Path Service',
@@ -87,7 +111,7 @@ const services = [
     name: 'Background Removal Service',
     difficulty: {
       basic: {
-        thumbnail: clipping_path_basic,
+        thumbnail: background_removal_basic,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.22 },
           { time: '72 hrs', price: 0.25 },
@@ -98,7 +122,7 @@ const services = [
         ],
       },
       medium: {
-        thumbnail: clipping_path_medium,
+        thumbnail: background_removal_medium,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 1.15 },
           { time: '72 hrs', price: 1.25 },
@@ -109,7 +133,7 @@ const services = [
         ],
       },
       complicated: {
-        thumbnail: clipping_path_medium,
+        thumbnail: background_removal_complicated,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 6.0 },
           { time: '72 hrs', price: 6.25 },
@@ -125,7 +149,7 @@ const services = [
     name: 'Image Masking Service',
     difficulty: {
       basic: {
-        thumbnail: clipping_path_basic,
+        thumbnail: image_masking_basic,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.49 },
           { time: '72 hrs', price: 0.5 },
@@ -136,7 +160,7 @@ const services = [
         ],
       },
       medium: {
-        thumbnail: clipping_path_medium,
+        thumbnail: image_masking_medium,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 1.0 },
           { time: '72 hrs', price: 1.1 },
@@ -147,7 +171,7 @@ const services = [
         ],
       },
       complicated: {
-        thumbnail: clipping_path_medium,
+        thumbnail: image_masking_complicated,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 2.0 },
           { time: '72 hrs', price: 2.25 },
@@ -163,7 +187,7 @@ const services = [
     name: 'Photoshop Shadow Services',
     difficulty: {
       basic: {
-        thumbnail: clipping_path_basic,
+        thumbnail: photoshop_shadow_basic,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.23 },
           { time: '72 hrs', price: 0.25 },
@@ -174,7 +198,7 @@ const services = [
         ],
       },
       medium: {
-        thumbnail: clipping_path_medium,
+        thumbnail: photoshop_shadow_medium,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.39 },
           { time: '72 hrs', price: 0.4 },
@@ -185,7 +209,7 @@ const services = [
         ],
       },
       complicated: {
-        thumbnail: clipping_path_medium,
+        thumbnail: photoshop_shadow_complicated,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.55 },
           { time: '72 hrs', price: 0.6 },
@@ -201,7 +225,7 @@ const services = [
     name: 'Photo Retouching Service',
     difficulty: {
       basic: {
-        thumbnail: clipping_path_basic,
+        thumbnail: photo_retouching_basic,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.49 },
           { time: '72 hrs', price: 0.5 },
@@ -212,7 +236,7 @@ const services = [
         ],
       },
       medium: {
-        thumbnail: clipping_path_medium,
+        thumbnail: photo_retouching_medium,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 1.15 },
           { time: '72 hrs', price: 1.2 },
@@ -223,7 +247,7 @@ const services = [
         ],
       },
       complicated: {
-        thumbnail: clipping_path_medium,
+        thumbnail: photo_retouching_complicated,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 4.85 },
           { time: '72 hrs', price: 5.0 },
@@ -239,7 +263,7 @@ const services = [
     name: 'Ghost Mannequin Service',
     difficulty: {
       basic: {
-        thumbnail: clipping_path_basic,
+        thumbnail: ghost_mannequin_basic,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.5 },
           { time: '72 hrs', price: 0.55 },
@@ -250,7 +274,7 @@ const services = [
         ],
       },
       medium: {
-        thumbnail: clipping_path_medium,
+        thumbnail: ghost_mannequin_medium,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.69 },
           { time: '72 hrs', price: 0.75 },
@@ -261,7 +285,7 @@ const services = [
         ],
       },
       complicated: {
-        thumbnail: clipping_path_medium,
+        thumbnail: ghost_mannequin_complicated,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 1.29 },
           { time: '72 hrs', price: 1.35 },
@@ -277,7 +301,7 @@ const services = [
     name: 'Color Correction Services',
     difficulty: {
       basic: {
-        thumbnail: clipping_path_basic,
+        thumbnail: color_correction_basic,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 0.79 },
           { time: '72 hrs', price: 0.85 },
@@ -288,7 +312,7 @@ const services = [
         ],
       },
       medium: {
-        thumbnail: clipping_path_medium,
+        thumbnail: color_correction_medium,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 1.5 },
           { time: '72 hrs', price: 1.69 },
@@ -299,7 +323,7 @@ const services = [
         ],
       },
       complicated: {
-        thumbnail: clipping_path_medium,
+        thumbnail: color_correction_complicated,
         pricing: [
           { time: 'This Week (96+ hrs)', price: 2.0 },
           { time: '72 hrs', price: 2.29 },
