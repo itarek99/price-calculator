@@ -1,3 +1,7 @@
+import { Listbox, Transition } from '@headlessui/react';
+import { Fragment, useState } from 'react';
+import { HiChevronUpDown } from 'react-icons/hi2';
+import fileFormat from '../../../data/fileFormat';
 import LeftSide from './LeftSide';
 const UploadFile = ({
   activity,
@@ -9,7 +13,14 @@ const UploadFile = ({
   setName,
   setEmail,
   setMessage,
+  selectedFileFormat,
+  setSelectedFileFormat,
 }) => {
+  const [formatChanged, setFormatChanged] = useState(false);
+
+  const emailRegEx =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.files} listNumber={5}>
@@ -40,7 +51,7 @@ const UploadFile = ({
             <div className='flex'>
               <input
                 onChange={(e) => {
-                  if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) && imageUrl) {
+                  if (email.match(emailRegEx) && imageUrl && formatChanged) {
                     setActivity((prevState) => ({ ...prevState, files: 'success' }));
                   }
                   setEmail(e.target.value);
@@ -59,7 +70,7 @@ const UploadFile = ({
             <div className='flex'>
               <input
                 onChange={(e) => {
-                  if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) && imageUrl) {
+                  if (email.match(emailRegEx) && imageUrl && formatChanged) {
                     setActivity((prevState) => ({ ...prevState, files: 'success' }));
                   }
                   setImageUrl(e.target.value);
@@ -71,6 +82,56 @@ const UploadFile = ({
               />
             </div>
           </div>
+
+          <div className='mt-4 xl:mt-6'>
+            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='imageUpload'>
+              *Return File Format
+            </label>
+            <div>
+              <Listbox
+                value={selectedFileFormat}
+                onChange={(value) => {
+                  if (email.match(emailRegEx) && imageUrl && formatChanged) {
+                    setActivity((prevState) => ({ ...prevState, files: 'success' }));
+                  }
+                  setFormatChanged((prevState) => !prevState);
+                  setSelectedFileFormat(value);
+                }}
+              >
+                <div className='relative mt-1'>
+                  <Listbox.Button className='border focus:border-primary relative w-full cursor-default rounded-lg p-3 text-left bg-white focus-visible:outline-none'>
+                    <span className='block truncate text-sm xl:text-base'>{selectedFileFormat.name}</span>
+                    <span className='pointer-events-none absolute inset-y-0 right-1 xl:right-2 flex items-center'>
+                      <HiChevronUpDown className='h-8 w-8 text-gray-400' aria-hidden='true' />
+                    </span>
+                  </Listbox.Button>
+                  <Transition
+                    as={Fragment}
+                    leave='transition ease-in duration-100'
+                    leaveFrom='opacity-100'
+                    leaveTo='opacity-0'
+                  >
+                    <Listbox.Options className='absolute mt-2 max-h-48 z-10 w-full overflow-auto rounded-md bg-white text-sm xl:text-base shadow-lg focus-visible:outline-none'>
+                      {fileFormat.map((format, formatId) => (
+                        <Listbox.Option
+                          key={formatId}
+                          className={({ active }) =>
+                            `relative cursor-default select-none py-2.5 px-4 ${
+                              active ? 'bg-secondary/20 text-gray-700' : 'text-gray-900'
+                            }`
+                          }
+                          value={format}
+                        >
+                          {format.name}
+                        </Listbox.Option>
+                      ))}
+                    </Listbox.Options>
+                  </Transition>
+                </div>
+              </Listbox>
+            </div>
+          </div>
+
           <div className='mt-4 xl:mt-6'>
             <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='imageUpload'>
               Your Message

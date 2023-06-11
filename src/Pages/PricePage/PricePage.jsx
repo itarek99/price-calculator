@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import dotMatrix from '../../assets/dotMatrix.svg';
 import ellipse from '../../assets/ellipse.svg';
+import fileFormat from '../../data/fileFormat';
 import services from '../../data/services';
 import CTASection from './Component/CTASection';
 import CustomQuote from './Component/CustomQuote';
@@ -21,6 +22,7 @@ const PricePage = () => {
     files: 'inactive',
   });
   const [selectedService, setSelectedService] = useState(services[0]);
+  const [selectedFileFormat, setSelectedFileFormat] = useState(fileFormat[0]);
   const [difficulty, setDifficulty] = useState('basic');
   const [selectedPlan, setSelectedPlan] = useState({});
   const [imageUrl, setImageUrl] = useState('');
@@ -40,7 +42,7 @@ const PricePage = () => {
       selectedService: selectedService.name,
       difficulty,
       selectedPlan,
-
+      returnFileType: selectedFileFormat.name,
       imageUrl,
       message,
       totalImage,
@@ -116,14 +118,16 @@ const PricePage = () => {
               />
               <UploadFile
                 email={email}
+                setName={setName}
                 imageUrl={imageUrl}
                 activity={activity}
-                setActivity={setActivity}
-                setName={setName}
                 setEmail={setEmail}
-                handlePlaceOrder={handlePlaceOrder}
-                setImageUrl={setImageUrl}
                 setMessage={setMessage}
+                setImageUrl={setImageUrl}
+                setActivity={setActivity}
+                handlePlaceOrder={handlePlaceOrder}
+                selectedFileFormat={selectedFileFormat}
+                setSelectedFileFormat={setSelectedFileFormat}
               />
             </>
           ) : (
@@ -137,7 +141,7 @@ const PricePage = () => {
         <div className='absolute top-48 right-0'>
           <img src={ellipse} alt='bg ellipse' />
         </div>
-        <div className='hidden xl:block bg-bottom-shape absolute bottom-0 right-0 bg-gradient-to-r from-[#FEE6F9] h-[540px] xl:h-[680px] w-full xl:w-[60.5%]'></div>
+        <div className='hidden xl:block bg-bottom-shape absolute bottom-0 right-0 bg-gradient-to-r from-[#FEE6F9] h-[540px] xl:h-full xl:max-h-[680px] w-full xl:w-[60.5%]'></div>
       </main>
       <FAQSection />
       <CTASection />
