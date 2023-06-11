@@ -3,10 +3,10 @@ import { Fragment } from 'react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 import LeftSide from './LeftSide';
 
-const SelectServices = ({ services, selectedService, setSelectedService }) => {
+const SelectServices = ({ activity, setActivity, services, selectedService, setSelectedService }) => {
   return (
     <div className='grid grid-cols-12 mt-12'>
-      <LeftSide listNumber={1}>
+      <LeftSide activity={activity.services} listNumber={1}>
         <p className='font-semibold'>Select Your Services</p>
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>
@@ -17,6 +17,7 @@ const SelectServices = ({ services, selectedService, setSelectedService }) => {
             value={selectedService}
             onChange={(value) => {
               setSelectedService(value);
+              setActivity((prevState) => ({ ...prevState, services: 'success', difficulty: 'pending' }));
             }}
           >
             <div className='relative mt-1'>

@@ -1,8 +1,18 @@
 import LeftSide from './LeftSide';
-const UploadFile = ({ handlePlaceOrder, setImageUrl, setName, setEmail, setMessage }) => {
+const UploadFile = ({
+  activity,
+  setActivity,
+  email,
+  imageUrl,
+  handlePlaceOrder,
+  setImageUrl,
+  setName,
+  setEmail,
+  setMessage,
+}) => {
   return (
     <div className='grid grid-cols-12 mt-12'>
-      <LeftSide listNumber={5}>
+      <LeftSide activity={activity.files} listNumber={5}>
         <p className='font-semibold'>Upload Files</p>
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>
@@ -29,7 +39,12 @@ const UploadFile = ({ handlePlaceOrder, setImageUrl, setName, setEmail, setMessa
             </label>
             <div className='flex'>
               <input
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) && imageUrl) {
+                    setActivity((prevState) => ({ ...prevState, files: 'success' }));
+                  }
+                  setEmail(e.target.value);
+                }}
                 placeholder='Your Email Address'
                 id='email'
                 type='email'
@@ -43,7 +58,12 @@ const UploadFile = ({ handlePlaceOrder, setImageUrl, setName, setEmail, setMessa
             </label>
             <div className='flex'>
               <input
-                onChange={(e) => setImageUrl(e.target.value)}
+                onChange={(e) => {
+                  if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) && imageUrl) {
+                    setActivity((prevState) => ({ ...prevState, files: 'success' }));
+                  }
+                  setImageUrl(e.target.value);
+                }}
                 placeholder='Please paste your image URL here...'
                 id='imageUpload'
                 type='text'

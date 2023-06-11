@@ -1,6 +1,6 @@
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 import LeftSide from './LeftSide';
-const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPlan }) => {
+const ImageQuantity = ({ activity, setActivity, totalImage, setTotalImage, selectedService, selectedPlan }) => {
   const preventSymbols = (e) => {
     const keyCodes = ['Minus', 'NumpadSubtract', 'NumpadAdd', 'Equal'];
     if (keyCodes.includes(e.code)) {
@@ -10,7 +10,7 @@ const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPla
 
   return (
     <div className='grid grid-cols-12 mt-12'>
-      <LeftSide listNumber={4}>
+      <LeftSide activity={activity.quantity} listNumber={4}>
         <p className='font-semibold'>Image Quantity</p>
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>
@@ -21,6 +21,7 @@ const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPla
             <button
               onClick={() => {
                 if (+totalImage === 0) return;
+                setActivity((prevState) => ({ ...prevState, quantity: 'success', files: 'pending' }));
                 setTotalImage(totalImage - 1);
               }}
               className='text-gray-500 border-r px-4 xl:px-10 flex justify-center items-center '
@@ -34,7 +35,7 @@ const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPla
                 step={1}
                 onKeyDown={preventSymbols}
                 onChange={(e) => {
-                  console.log(e.target.value.toString());
+                  setActivity((prevState) => ({ ...prevState, quantity: 'success', files: 'pending' }));
                   setTotalImage(e.target.value.toString().replace('+', '').replace('-', ''));
                 }}
                 className='text-center outline-none text-gray-700 font-medium xl:text-xl'
@@ -45,6 +46,7 @@ const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPla
 
             <button
               onClick={() => {
+                setActivity((prevState) => ({ ...prevState, quantity: 'success', files: 'pending' }));
                 setTotalImage(+totalImage + 1);
               }}
               className='text-gray-500 border-l px-4 xl:px-10 flex justify-center items-center '

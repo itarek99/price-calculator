@@ -13,6 +13,13 @@ import TurnaroundTime from './Component/TurnaroundTime';
 import UploadFile from './Component/UploadFile';
 
 const PricePage = () => {
+  const [activity, setActivity] = useState({
+    services: 'pending',
+    difficulty: 'inactive',
+    time: 'inactive',
+    quantity: 'inactive',
+    files: 'inactive',
+  });
   const [selectedService, setSelectedService] = useState(services[0]);
   const [difficulty, setDifficulty] = useState('basic');
   const [selectedPlan, setSelectedPlan] = useState({});
@@ -76,6 +83,8 @@ const PricePage = () => {
             </div>
           </div>
           <SelectServices
+            activity={activity}
+            setActivity={setActivity}
             services={services}
             selectedService={selectedService}
             setSelectedService={setSelectedService}
@@ -83,23 +92,33 @@ const PricePage = () => {
           {selectedService.difficulty ? (
             <>
               <SelectDifficulty
+                activity={activity}
+                setActivity={setActivity}
                 selectedService={selectedService}
                 difficulty={difficulty}
                 setDifficulty={setDifficulty}
               />
               <TurnaroundTime
+                activity={activity}
+                setActivity={setActivity}
                 difficulty={difficulty}
                 selectedService={selectedService}
                 selectedPlan={selectedPlan}
                 setSelectedPlan={setSelectedPlan}
               />
               <ImageQuantity
+                activity={activity}
+                setActivity={setActivity}
                 totalImage={totalImage}
                 setTotalImage={setTotalImage}
                 selectedService={selectedService}
                 selectedPlan={selectedPlan}
               />
               <UploadFile
+                email={email}
+                imageUrl={imageUrl}
+                activity={activity}
+                setActivity={setActivity}
                 setName={setName}
                 setEmail={setEmail}
                 handlePlaceOrder={handlePlaceOrder}

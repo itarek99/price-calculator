@@ -1,9 +1,34 @@
+import { FaCheck } from 'react-icons/fa';
 import arrow from '../../../assets/arrow_right.png';
 
-const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
+const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, setDifficulty }) => {
+  const serialClasses = () => {
+    if (activity?.difficulty === 'success') {
+      return 'bg-primary';
+    }
+    if (activity?.difficulty === 'pending') {
+      return 'bg-secondary';
+    }
+    if (activity?.difficulty === 'inactive') {
+      return 'bg-grey';
+    }
+  };
+  const borderClasses = () => {
+    if (activity?.difficulty === 'success') {
+      return 'border-primary';
+    }
+    if (activity?.difficulty === 'pending') {
+      return 'border-secondary';
+    }
+    if (activity?.difficulty === 'inactive') {
+      return 'border-gray-300';
+    }
+  };
+
   const difficultyPlans = Object.keys(selectedService.difficulty || {});
   const handleRadioChange = (event) => {
     setDifficulty(event.target.value);
+    setActivity((prevState) => ({ ...prevState, difficulty: 'success', time: 'pending' }));
   };
 
   return (
@@ -11,9 +36,11 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
       {selectedService.difficulty && (
         <>
           <div className='col-span-12 xl:col-span-5 z-10'>
-            <div className='border bg-white border-primary xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6'>
-              <div className='h-10 w-10 bg-primary rounded-full text-white flex justify-center items-center'>
-                <span className='text-lg font-bold'>2</span>
+            <div
+              className={`border bg-white  xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6 ${borderClasses()}`}
+            >
+              <div className={`h-10 w-10  rounded-full text-white flex justify-center items-center ${serialClasses()}`}>
+                <span className='text-lg font-bold'>{activity === 'success' ? <FaCheck /> : 2} </span>
               </div>
               <div className=''>
                 <p className='font-semibold'>Select Difficulty</p>
