@@ -40,7 +40,7 @@ const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, 
               className={`border bg-white  xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6 ${borderClasses()}`}
             >
               <div className={`h-10 w-10  rounded-full text-white flex justify-center items-center ${serialClasses()}`}>
-                <span className='text-lg font-bold'>{activity === 'success' ? <FaCheck /> : 2} </span>
+                <span className='text-lg font-bold'>{activity.difficulty === 'success' ? <FaCheck /> : 2} </span>
               </div>
               <div className=''>
                 <p className='font-semibold'>Select Difficulty</p>
