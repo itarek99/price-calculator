@@ -1,8 +1,8 @@
 const CustomQuote = () => {
   return (
-    <div className='grid grid-cols-12'>
-      <div className='col-span-12 xl:col-span-5'></div>
-      <div className='col-span-12 xl:col-span-7 mt-3 xl:mt-5'>
+    <div className='grid grid-cols-12 '>
+      <div className='col-span-12 xl:col-span-5 z-10'></div>
+      <div className='col-span-12 xl:col-span-7 mt-3 xl:mt-5 z-10'>
         <div className='p-4 xl:p-8 bg-white rounded-lg'>
           <p className='text-gray-800'>
             Pricing Not Available for This Service,
