@@ -11,7 +11,7 @@ const SelectServices = ({ services, selectedService, setSelectedService }) => {
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>
 
-      <div className='col-span-12 xl:col-span-7 z-10'>
+      <div className='col-span-12 xl:col-span-7 z-20'>
         <div className='ml-12 xl:ml-0'>
           <Listbox
             value={selectedService}
