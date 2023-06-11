@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const LeftSide = ({ children, listNumber }) => {
   return (
-    <div className='col-span-12 xl:col-span-5'>
+    <div className='col-span-12 xl:col-span-5 z-10'>
       <div className='border bg-white border-primary xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-3 xl:mb-0'>
         <div className='h-10 w-10 bg-primary rounded-full text-white flex justify-center items-center'>
           <span className='text-lg font-bold'>{listNumber}</span>

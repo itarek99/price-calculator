@@ -36,8 +36,10 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <div className='mt-12 xl:mt-20'>
-      <h1 className='text-center text-4xl font-bold'>FAQ</h1>
+    <div className={`faq-section `}>
+      <div className='pt-16'>
+        <h1 className='text-center text-4xl font-bold '>FAQ</h1>
+      </div>
 
       <div className='max-w-3xl mx-auto mt-6 xl:mt-12 px-3'>
         <div className='w-full'>
@@ -59,10 +61,13 @@ const FAQSection = () => {
         </div>
       </div>
 
-      <div className='text-center mt-12 xl:mt-20'>
-        <button className='bg-secondary text-xl px-8 py-4 capitalize text-white font-medium rounded-lg'>
+      <div className='text-center mt-12 xl:mt-20 pb-20'>
+        <a
+          href='https://clippingpathca.com/get-a-quote/'
+          className='bg-secondary text-xl px-8 py-4 capitalize text-white font-medium rounded-lg'
+        >
           Request a custom quote
-        </button>
+        </a>
       </div>
     </div>
   );

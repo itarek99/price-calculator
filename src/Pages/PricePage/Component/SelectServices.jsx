@@ -11,9 +11,14 @@ const SelectServices = ({ services, selectedService, setSelectedService }) => {
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>
 
-      <div className='col-span-12 xl:col-span-7'>
+      <div className='col-span-12 xl:col-span-7 z-10'>
         <div className='ml-12 xl:ml-0'>
-          <Listbox value={selectedService} onChange={setSelectedService}>
+          <Listbox
+            value={selectedService}
+            onChange={(value) => {
+              setSelectedService(value);
+            }}
+          >
             <div className='relative mt-1'>
               <Listbox.Button className='relative w-full cursor-default rounded-lg py-4 px-4  xl:py-7 xl:px-8 text-left bg-white border-gray-300'>
                 <span className='block truncate'>{selectedService.name}</span>

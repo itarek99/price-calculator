@@ -1,6 +1,13 @@
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 import LeftSide from './LeftSide';
 const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPlan }) => {
+  const preventSymbols = (e) => {
+    const keyCodes = ['Minus', 'NumpadSubtract', 'NumpadAdd', 'Equal'];
+    if (keyCodes.includes(e.code)) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide listNumber={4}>
@@ -13,7 +20,7 @@ const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPla
           <div className='ml-12 justify-between xl:ml-0 flex rounded-lg h-12 xl:h-20 bg-white'>
             <button
               onClick={() => {
-                if (totalImage === 0) return;
+                if (+totalImage === 0) return;
                 setTotalImage(totalImage - 1);
               }}
               className='text-gray-500 border-r px-4 xl:px-10 flex justify-center items-center '
@@ -21,11 +28,24 @@ const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPla
               <FaMinusCircle className='text-lg xl:text-2xl' />
             </button>
 
-            <div className='self-center'>{totalImage}</div>
+            <div className='flex'>
+              <input
+                min={1}
+                step={1}
+                onKeyDown={preventSymbols}
+                onChange={(e) => {
+                  console.log(e.target.value.toString());
+                  setTotalImage(e.target.value.toString().replace('+', '').replace('-', ''));
+                }}
+                className='text-center outline-none text-gray-700 font-medium xl:text-xl'
+                type='number'
+                value={totalImage}
+              />
+            </div>
 
             <button
               onClick={() => {
-                setTotalImage(totalImage + 1);
+                setTotalImage(+totalImage + 1);
               }}
               className='text-gray-500 border-l px-4 xl:px-10 flex justify-center items-center '
             >
@@ -39,7 +59,7 @@ const ImageQuantity = ({ totalImage, setTotalImage, selectedService, selectedPla
             </div>
 
             <div className='text-primary  xl:text-xl font-semibold select-none'>
-              <p>${(selectedPlan?.price * totalImage).toFixed(3)}</p>
+              <p>${(selectedPlan?.price * totalImage).toFixed(2)}</p>
             </div>
           </div>
         </div>

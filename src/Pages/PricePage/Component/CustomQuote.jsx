@@ -9,9 +9,12 @@ const CustomQuote = () => {
             <br /> Please Request A Custom Quote!
           </p>
           <div className='mt-6'>
-            <button className='bg-secondary w-full md:w-auto px-5 py-3 capitalize text-white font-medium rounded-md'>
+            <a
+              href='https://clippingpathca.com/get-a-quote/'
+              className='bg-secondary w-full md:w-auto px-5 py-3 capitalize text-white font-medium rounded-md'
+            >
               Request a custom quote
-            </button>
+            </a>
           </div>
         </div>
       </div>

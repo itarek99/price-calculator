@@ -10,7 +10,7 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
     <div className='grid grid-cols-12 mt-12'>
       {selectedService.difficulty && (
         <>
-          <div className='col-span-12 xl:col-span-5'>
+          <div className='col-span-12 xl:col-span-5 z-10'>
             <div className='border bg-white border-primary xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6'>
               <div className='h-10 w-10 bg-primary rounded-full text-white flex justify-center items-center'>
                 <span className='text-lg font-bold'>2</span>
@@ -54,7 +54,7 @@ const SelectDifficulty = ({ selectedService, difficulty, setDifficulty }) => {
               ))}
             </div>
           </div>
-          <div className='col-span-12 xl:col-span-5'>
+          <div className='col-span-12 xl:col-span-5 z-10'>
             {/* <div className=' bg-white p-4 xl:p-8 rounded-lg gap-4 object-contain h-60'>
               <img
                 className='block object-contain mx-auto'

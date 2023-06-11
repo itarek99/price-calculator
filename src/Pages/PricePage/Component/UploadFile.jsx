@@ -1,6 +1,5 @@
-import { HiXMark } from 'react-icons/hi2';
 import LeftSide from './LeftSide';
-const UploadFile = ({ handlePlaceOrder, setImageUrl, setUploadedPhoto, setMessage }) => {
+const UploadFile = ({ handlePlaceOrder, setImageUrl, setName, setEmail, setMessage }) => {
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide listNumber={5}>
@@ -8,37 +7,47 @@ const UploadFile = ({ handlePlaceOrder, setImageUrl, setUploadedPhoto, setMessag
         <p className='text-sm'>What edit do you want to try?</p>
       </LeftSide>
 
-      <div className='col-span-12 xl:col-span-7'>
+      <div className='col-span-12 xl:col-span-7 z-10'>
         <div className='ml-12 xl:ml-0 p-4 xl:p-8 bg-white rounded-lg'>
-          <div>
-            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='imageUpload'>
-              *Upload Your Image Here (Max. 4)
+          <div className='mt-4 xl:mt-6'>
+            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='name'>
+              Name
             </label>
-            <div className='flex '>
-              {/* <label htmlFor='imageUpload' className='border p-3 py-6 grow rounded-l-lg bg-white'></label> */}
+            <div className='flex'>
               <input
-                onChange={(e) => setUploadedPhoto(e.target.value)}
-                id='imageUpload'
-                type='file'
-                multiple
-                className='border text-sm xl:text-base p-3 grow rounded-l-lg bg-white'
+                onChange={(e) => setName(e.target.value)}
+                placeholder='Your Full Name'
+                id='name'
+                type='text'
+                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
               />
-              <button className='border px-4 rounded-r-lg bg-white'>
-                <HiXMark />
-              </button>
+            </div>
+          </div>
+          <div className='mt-4 xl:mt-6'>
+            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='email'>
+              *Email
+            </label>
+            <div className='flex'>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder='Your Email Address'
+                id='email'
+                type='email'
+                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
+              />
             </div>
           </div>
           <div className='mt-4 xl:mt-6'>
             <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='imageUpload'>
-              Image URL (Share your image link: Google Drive, Dropbox, Wetransfer, Any Others)
+              *Image URL (Share your image link: Google Drive, Dropbox, Wetransfer, Any Others)
             </label>
             <div className='flex'>
               <input
                 onChange={(e) => setImageUrl(e.target.value)}
-                placeholder='Please paste your image URL here....'
+                placeholder='Please paste your image URL here...'
                 id='imageUpload'
                 type='text'
-                className='border text-sm xl:text-base p-3 grow rounded-lg'
+                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
               />
             </div>
           </div>
@@ -51,7 +60,7 @@ const UploadFile = ({ handlePlaceOrder, setImageUrl, setUploadedPhoto, setMessag
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder='Type your instruction here...'
                 id='imageUpload'
-                className='border text-sm xl:text-base p-3 grow rounded-lg'
+                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
               />
             </div>
           </div>

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import dotMatrix from '../../assets/dotMatrix.svg';
+import ellipse from '../../assets/ellipse.svg';
 import services from '../../data/services';
 import CTASection from './Component/CTASection';
 import CustomQuote from './Component/CustomQuote';
@@ -14,21 +16,24 @@ const PricePage = () => {
   const [selectedService, setSelectedService] = useState(services[0]);
   const [difficulty, setDifficulty] = useState('basic');
   const [selectedPlan, setSelectedPlan] = useState({});
-  const [uploadedPhoto, setUploadedPhoto] = useState();
   const [imageUrl, setImageUrl] = useState('');
   const [message, setMessage] = useState('');
   const [totalImage, setTotalImage] = useState(0);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
-    setSelectedPlan(selectedService.difficulty ? selectedService.difficulty[difficulty].pricing[0] : null);
+    setSelectedPlan(selectedService.difficulty ? selectedService.difficulty[difficulty].pricing[2] : null);
   }, [selectedService, difficulty]);
 
   const handlePlaceOrder = () => {
     const orderInfo = {
-      selectedService,
+      name,
+      email,
+      selectedService: selectedService.name,
       difficulty,
       selectedPlan,
-      uploadedPhoto,
+
       imageUrl,
       message,
       totalImage,
@@ -41,11 +46,34 @@ const PricePage = () => {
   return (
     <>
       <Heading />
-      <main className='mt-12 bg-[#4360b8] xl:bg-gradient-to-r from-[#FCFCFC] from-[38%]  via-[#F7F9FF] via-[38%] to-[#3e5dbb] to-100% py-16 xl:mt-20 '>
+      <main className='relative bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[39.5%]  via-[#F7F9FF] via-[38%] to-[#F7F9FF] to-100% pb-16 pt-12'>
         <div className='container mx-auto px-4 xl:px-0'>
           <div>
             <h2 className='text-3xl font-bold'>Get Your Estimate</h2>
-            <p className='text-sm text-gray-700'>We Ensure You The Best Quality & Rate</p>
+            <div className='flex ml-8 mt-2'>
+              <div className='mt-2.5 mr-1'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='71' height='12' fill='none' viewBox='0 0 71 12'>
+                  <path
+                    stroke='#2B74B8'
+                    d='M.784 11.37C4.321 7.285 14.92-.464 29.02 1.21c17.624 2.095 21.454 13.884 40.837 4.853'
+                  />
+                </svg>
+              </div>
+              <p className='text-sm text-gray-700 '>
+                We Ensure You The{' '}
+                <span className='bg-[#FC2E9D] text-white py-1 px-0.5 relative rounded-sm'>
+                  Best Quality & Rate
+                  <span className='absolute top-[98%] left-8'>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='27' height='14' fill='none' viewBox='0 0 27 14'>
+                      <path
+                        fill='#FC2E9D'
+                        d='M.86 12.928C1.932 8.986 2.41 2.833 2.517 0H27C17.903 6.619-.21 16.87.86 12.928Z'
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </p>
+            </div>
           </div>
           <SelectServices
             services={services}
@@ -72,9 +100,10 @@ const PricePage = () => {
                 selectedPlan={selectedPlan}
               />
               <UploadFile
+                setName={setName}
+                setEmail={setEmail}
                 handlePlaceOrder={handlePlaceOrder}
                 setImageUrl={setImageUrl}
-                setUploadedPhoto={setUploadedPhoto}
                 setMessage={setMessage}
               />
             </>
@@ -82,6 +111,14 @@ const PricePage = () => {
             <CustomQuote />
           )}
         </div>
+
+        <div className='hidden xl:block absolute top-0 right-0'>
+          <img src={dotMatrix} alt='dot matrix' />
+        </div>
+        <div className='absolute top-48 right-0'>
+          <img src={ellipse} alt='bg ellipse' />
+        </div>
+        <div className='hidden xl:block bg-bottom-shape absolute bottom-0 right-0 bg-gradient-to-r from-[#FEE6F9] h-[540px] xl:h-[680px] w-full xl:w-[60.5%]'></div>
       </main>
       <FAQSection />
       <CTASection />
