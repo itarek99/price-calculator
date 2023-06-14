@@ -59,9 +59,9 @@ const PricePage = () => {
         <div className='container mx-auto px-4 xl:px-0'>
           <div>
             <h2 className='text-3xl font-bold'>Get Your Estimate</h2>
-            <div className='flex ml-8 mt-2'>
-              <div className='mt-2.5 mr-1'>
-                <svg xmlns='http://www.w3.org/2000/svg' width='71' height='12' fill='none' viewBox='0 0 71 12'>
+            <div className='flex xl:ml-8 mt-2'>
+              <div className='hidden xl:block mt-2.5 mr-1'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='70' height='12' fill='none' viewBox='0 0 71 12'>
                   <path
                     stroke='#2B74B8'
                     d='M.784 11.37C4.321 7.285 14.92-.464 29.02 1.21c17.624 2.095 21.454 13.884 40.837 4.853'

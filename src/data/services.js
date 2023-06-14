@@ -353,6 +353,9 @@ const services = [
   {
     name: 'Raster to Vector Conversion',
   },
+  {
+    name: 'Other Services',
+  },
 ];
 
 export default services;

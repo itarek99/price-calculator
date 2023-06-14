@@ -38,7 +38,7 @@ const ImageQuantity = ({ activity, setActivity, totalImage, setTotalImage, selec
                   setActivity((prevState) => ({ ...prevState, quantity: 'success', files: 'pending' }));
                   setTotalImage(e.target.value.toString().replace('+', '').replace('-', ''));
                 }}
-                className='text-center outline-none text-gray-700 font-medium xl:text-xl'
+                className='w-28 text-center outline-none text-gray-700 font-medium xl:text-xl'
                 type='number'
                 value={totalImage}
               />
