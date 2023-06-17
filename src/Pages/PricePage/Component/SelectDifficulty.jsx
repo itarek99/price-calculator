@@ -3,6 +3,18 @@ import arrow from '../../../assets/arrow_right.png';
 import ToolTip from './ToolTip';
 
 const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, setDifficulty }) => {
+  const difficultyTooltip = (item) => {
+    if (item === 'basic') {
+      return 'Basic editing is generally applied to images that require minimal modifications.';
+    }
+    if (item === 'medium') {
+      return 'Medium editing goes a step further and involves more advanced modifications and enhancements.';
+    }
+    if (item === 'complicated') {
+      return 'Complicated editing is the most advanced level of editing, usually required for images with complex challenges. It requires a high level of skill, expertise, and attention to detail.';
+    }
+  };
+
   const serialClasses = () => {
     if (activity?.difficulty === 'success') {
       return 'bg-primary';
@@ -81,7 +93,10 @@ const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, 
                         difficulty === item ? 'border-primary bg-primary' : 'border-grey'
                       }`}
                     ></span>
-                    <span className='xl:mt-0.5 capitalize'>{item}</span>
+                    <span className='xl:mt-0.5 flex items-center gap-2'>
+                      <span className='capitalize'>{item}</span>
+                      <ToolTip toolTipText={difficultyTooltip(item)} />
+                    </span>
                   </label>
                 </div>
               ))}

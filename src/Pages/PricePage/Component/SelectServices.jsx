@@ -16,7 +16,7 @@ const SelectServices = ({ activity, setActivity, services, selectedService, setS
         <p className='text-xs md:text-sm'>Which type of editing service do you require?</p>
       </LeftSide>
 
-      <div className='col-span-12 xl:col-span-7 z-20'>
+      <div className='col-span-12 xl:col-span-7'>
         <div className='ml-12 xl:ml-0'>
           <Listbox
             value={selectedService}
@@ -26,7 +26,7 @@ const SelectServices = ({ activity, setActivity, services, selectedService, setS
             }}
           >
             <div className='relative mt-1'>
-              <Listbox.Button className='relative w-full cursor-default rounded-lg py-4 px-4  xl:py-7 xl:px-8 text-left bg-white border-gray-300'>
+              <Listbox.Button className='relative w-full z-10 cursor-default rounded-lg py-4 px-4  xl:py-7 xl:px-8 text-left bg-white border-gray-300'>
                 <span className='block truncate'>{selectedService.name}</span>
                 <span className='pointer-events-none absolute inset-y-0 right-1 xl:right-4 flex items-center pr-2'>
                   <HiChevronUpDown className='h-8 w-8 text-gray-400' aria-hidden='true' />
@@ -38,7 +38,7 @@ const SelectServices = ({ activity, setActivity, services, selectedService, setS
                 leaveFrom='opacity-100'
                 leaveTo='opacity-0'
               >
-                <Listbox.Options className='absolute mt-2 max-h-60 z-10 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+                <Listbox.Options className='absolute mt-2 max-h-60 z-20 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
                   {services.map((service, serviceIdx) => (
                     <Listbox.Option
                       key={serviceIdx}
