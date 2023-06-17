@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import arrow from '../../../assets/arrow_right.png';
 import ToolTip from './ToolTip';
@@ -38,8 +39,15 @@ const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, 
     }
   };
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [loaderHeight, setLoaderHeight] = useState(0);
+  const imageBox = useRef();
+
   const difficultyPlans = Object.keys(selectedService.difficulty || {});
   const handleRadioChange = (event) => {
+    setLoaderHeight(imageBox.current.clientHeight + 2);
+
+    setImageLoaded(false);
     setDifficulty(event.target.value);
     setActivity((prevState) => ({ ...prevState, difficulty: 'success', time: 'pending' }));
   };
@@ -102,18 +110,24 @@ const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, 
               ))}
             </div>
           </div>
-          <div className='col-span-12 xl:col-span-5 z-10'>
-            {/* <div className=' bg-white p-4 xl:p-8 rounded-lg gap-4 object-contain h-60'>
-              <img
-                className='block object-contain mx-auto'
-                src={selectedService.difficulty[difficulty].thumbnail}
-                alt='Work sample'
-              />
-            </div> */}
 
+          <div className='col-span-12 xl:col-span-5 z-10'>
             <div className='bg-white p-6 rounded-lg mt-4 xl:mt-0'>
-              <div className='h-full flex items-center flex-col'>
+              <div className='flex items-center flex-col'>
+                {imageLoaded ? null : (
+                  <div style={{ height: loaderHeight + 'px' }} className='flex items-center justify-center'>
+                    <div
+                      className='inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]'
+                      role='status'
+                    ></div>
+                  </div>
+                )}
                 <img
+                  ref={imageBox}
+                  style={imageLoaded ? {} : { display: 'none' }}
+                  onLoad={() => {
+                    setImageLoaded(true);
+                  }}
                   className='object-contain min-h-0 border border-gray-700'
                   src={selectedService.difficulty[difficulty].thumbnail}
                 />
