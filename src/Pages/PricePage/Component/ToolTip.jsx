@@ -1,10 +1,10 @@
 import info from '../../../assets/info.png';
-const TootTip = ({ toolTipText }) => {
+const ToolTip = ({ toolTipText }) => {
   return (
-    <div className='relative group'>
-      <div className='invisible group-hover:visible shadow-lg absolute w-64 text-center bottom-12 -left-32 xl:-left-12 text-sm font-normal bg-tertiary text-white p-3 rounded-lg'>
+    <div className='relative group z-20'>
+      <div className='invisible group-hover:visible shadow-lg absolute w-64 text-center bottom-12 -left-40 md:-left-16 text-sm font-normal bg-tertiary text-white p-3 rounded-lg'>
         {toolTipText}
-        <span className='absolute top-[98%] left-36 xl:left-16'>
+        <span className='absolute top-[98%] left-44 md:left-20'>
           <svg xmlns='http://www.w3.org/2000/svg' width='27' height='15' fill='none' viewBox='0 0 27 15'>
             <path
               fill='#3678B5'
@@ -17,4 +17,4 @@ const TootTip = ({ toolTipText }) => {
     </div>
   );
 };
-export default TootTip;
+export default ToolTip;

@@ -30,9 +30,11 @@ const LeftSide = ({ activity, children, listNumber }) => {
   return (
     <div className='col-span-12 xl:col-span-5 z-10'>
       <div
-        className={`border bg-white xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-3 xl:mb-0 ${borderClasses()}`}
+        className={`border bg-white xl:w-9/12 p-4 md:p-5 rounded-full flex items-center gap-3 md:gap-4 relative mb-3 xl:mb-0 ${borderClasses()}`}
       >
-        <div className={`h-10 w-10 rounded-full text-white flex justify-center items-center  ${serialClasses()}`}>
+        <div
+          className={`h-10 w-10 rounded-full text-white flex justify-center items-center flex-shrink-0  ${serialClasses()}`}
+        >
           <span className='text-lg font-bold'>{activity === 'success' ? <FaCheck /> : listNumber}</span>
         </div>
         <div>{children}</div>

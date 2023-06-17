@@ -3,6 +3,7 @@ import { Fragment, useState } from 'react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 import fileFormat from '../../../data/fileFormat';
 import LeftSide from './LeftSide';
+import ToolTip from './ToolTip';
 const UploadFile = ({
   activity,
   setActivity,
@@ -24,8 +25,11 @@ const UploadFile = ({
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.files} listNumber={5}>
-        <p className='font-semibold'>Upload Files</p>
-        <p className='text-sm'>What edit do you want to try?</p>
+        <div className='flex items-center gap-2'>
+          <p className='font-semibold'>Upload Files</p>
+          <ToolTip toolTipText='Fill out the form and attach the image file link so that we can download it quickly and easily. Image file types should be: JPG (preferable), RAW, PSD, PNG, TIFF, or CR2.' />
+        </div>
+        <p className='text-sm'>Send your file and place your order seamlessly.</p>
       </LeftSide>
 
       <div className='col-span-12 xl:col-span-7 z-10'>
@@ -141,6 +145,7 @@ const UploadFile = ({
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder='Type your instruction here...'
                 id='imageUpload'
+                rows={3}
                 className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
               />
             </div>
@@ -150,7 +155,7 @@ const UploadFile = ({
         <div className='mt-12 xl:mt-16'>
           <button
             onClick={handlePlaceOrder}
-            className='w-full xl:w-auto uppercase bg-[#2970FB] text-white font-bold text-xl py-4 px-10 rounded-lg'
+            className='w-full xl:w-auto uppercase bg-[#2970FB] text-white font-bold text-base xl:text-xl py-3 xl:py-4 px-10 rounded-lg'
           >
             Place Order
           </button>

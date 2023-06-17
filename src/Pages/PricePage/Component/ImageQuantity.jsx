@@ -1,5 +1,6 @@
 import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 import LeftSide from './LeftSide';
+import ToolTip from './ToolTip';
 const ImageQuantity = ({ activity, setActivity, totalImage, setTotalImage, selectedService, selectedPlan }) => {
   const preventSymbols = (e) => {
     const keyCodes = ['Minus', 'NumpadSubtract', 'NumpadAdd', 'Equal'];
@@ -11,8 +12,12 @@ const ImageQuantity = ({ activity, setActivity, totalImage, setTotalImage, selec
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.quantity} listNumber={4}>
-        <p className='font-semibold'>Image Quantity</p>
-        <p className='text-sm'>What edit do you want to try?</p>
+        <div className='flex items-center gap-2'>
+          <p className='font-semibold'>Image Quantity</p>
+          <ToolTip toolTipText='The more images you have, the greater the savings. Save big when you place a large order of images with us.' />
+        </div>
+
+        <p className='text-sm'>Enjoy up to 30% off with our bulk order discount.</p>
       </LeftSide>
 
       {selectedService.difficulty && (

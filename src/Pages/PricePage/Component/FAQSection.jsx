@@ -62,7 +62,7 @@ const FAQSection = () => {
       <div className='text-center mt-12 xl:mt-20 pb-20'>
         <a
           href='https://clippingpathca.com/get-a-quote/'
-          className='bg-secondary text-xl px-8 py-4 capitalize text-white font-medium rounded-lg'
+          className='bg-secondary text-base xl:text-xl px-8 py-3 xl:py-4 capitalize text-white font-medium rounded-lg'
         >
           Request a custom quote
         </a>

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import dotMatrix from '../../assets/dotMatrix.svg';
 import ellipse from '../../assets/ellipse.svg';
 import fileFormat from '../../data/fileFormat';
@@ -12,7 +14,6 @@ import SelectDifficulty from './Component/SelectDifficulty';
 import SelectServices from './Component/SelectServices';
 import TurnaroundTime from './Component/TurnaroundTime';
 import UploadFile from './Component/UploadFile';
-
 const PricePage = () => {
   const [activity, setActivity] = useState({
     services: 'pending',
@@ -35,6 +36,9 @@ const PricePage = () => {
     setSelectedPlan(selectedService.difficulty ? selectedService.difficulty[difficulty].pricing[2] : null);
   }, [selectedService, difficulty]);
 
+  const emailRegEx =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   const handlePlaceOrder = () => {
     const orderInfo = {
       name,
@@ -48,6 +52,15 @@ const PricePage = () => {
       totalImage,
       totalPrice: selectedPlan.price * totalImage,
     };
+
+    if (!email.match(emailRegEx)) {
+      toast.error('Please provide valid Email');
+      return;
+    }
+    if (!imageUrl) {
+      toast.error('Please provide Image Url');
+      return;
+    }
 
     console.log(orderInfo);
   };
@@ -145,6 +158,7 @@ const PricePage = () => {
       </main>
       <FAQSection />
       <CTASection />
+      <ToastContainer />
     </>
   );
 };

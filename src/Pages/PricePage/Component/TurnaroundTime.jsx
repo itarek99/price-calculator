@@ -1,10 +1,14 @@
 import LeftSide from './LeftSide';
+import ToolTip from './ToolTip';
 
 const TurnaroundTime = ({ activity, setActivity, difficulty, selectedService, selectedPlan, setSelectedPlan }) => {
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.time} listNumber={3}>
-        <p className='font-semibold'>Turnaround Time</p>
+        <div className='flex items-center gap-2'>
+          <p className='font-semibold'>Turnaround Time</p>
+          <ToolTip toolTipText='Choose expedited delivery for projects with short deadlines or choose cost-saving options with a longer time frame.' />
+        </div>
         <p className='text-sm'>Save money if you have time to wait.</p>
       </LeftSide>
 

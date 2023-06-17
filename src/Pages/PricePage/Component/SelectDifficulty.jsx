@@ -1,5 +1,6 @@
 import { FaCheck } from 'react-icons/fa';
 import arrow from '../../../assets/arrow_right.png';
+import ToolTip from './ToolTip';
 
 const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, setDifficulty }) => {
   const serialClasses = () => {
@@ -39,12 +40,17 @@ const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, 
             <div
               className={`border bg-white  xl:w-9/12 p-5 rounded-full flex items-center gap-4 relative mb-4 xl:mb-6 ${borderClasses()}`}
             >
-              <div className={`h-10 w-10  rounded-full text-white flex justify-center items-center ${serialClasses()}`}>
+              <div
+                className={`h-10 w-10  rounded-full text-white flex justify-center items-center flex-shrink-0 ${serialClasses()}`}
+              >
                 <span className='text-lg font-bold'>{activity.difficulty === 'success' ? <FaCheck /> : 2} </span>
               </div>
               <div className=''>
-                <p className='font-semibold'>Select Difficulty</p>
-                <p className='text-sm'>What edit do you want to try?</p>
+                <div className='flex items-center gap-2'>
+                  <p className='font-semibold'>Select Difficulty</p>
+                  <ToolTip toolTipText='Compare the complexity of your image with the three categories represented by the example image.' />
+                </div>
+                <p className='text-xs md:text-sm'>What is the level of complexity in your images?</p>
               </div>
 
               <div className='absolute top-24 -left-6 transform -scale-x-100 -rotate-[130deg] xl:scale-100 xl:rotate-0 z-10 xl:-right-24 xl:left-auto xl:-top-4'>

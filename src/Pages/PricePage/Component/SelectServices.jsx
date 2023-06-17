@@ -3,17 +3,17 @@ import { Fragment } from 'react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 
 import LeftSide from './LeftSide';
-import TootTip from './TootTip';
+import ToolTip from './ToolTip';
 
 const SelectServices = ({ activity, setActivity, services, selectedService, setSelectedService }) => {
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.services} listNumber={1}>
         <div className='flex items-center gap-2'>
-          <p className='font-semibold '>Select Your Services</p>
-          <TootTip toolTipText="If the service you are looking for is not listed here, click 'Other Services,' then submit a custom quote to us." />
+          <p className='font-semibold'>Select Your Services</p>
+          <ToolTip toolTipText="If the service you are looking for is not listed here, click 'Other Services' then submit a custom quote to us." />
         </div>
-        <p className='text-sm'>Which type of editing service do you require?</p>
+        <p className='text-xs md:text-sm'>Which type of editing service do you require?</p>
       </LeftSide>
 
       <div className='col-span-12 xl:col-span-7 z-20'>
