@@ -3,7 +3,15 @@ import { FaCheck } from 'react-icons/fa';
 import arrow from '../../../assets/arrow_right.png';
 import ToolTip from './ToolTip';
 
-const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, setDifficulty }) => {
+const SelectDifficulty = ({
+  setImageLoaded,
+  imageLoaded,
+  activity,
+  setActivity,
+  selectedService,
+  difficulty,
+  setDifficulty,
+}) => {
   const difficultyTooltip = (item) => {
     if (item === 'basic') {
       return 'Basic editing is generally applied to images that require minimal modifications.';
@@ -39,7 +47,6 @@ const SelectDifficulty = ({ activity, setActivity, selectedService, difficulty, 
     }
   };
 
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [loaderHeight, setLoaderHeight] = useState(0);
   const imageBox = useRef();
 

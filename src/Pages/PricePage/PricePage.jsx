@@ -23,6 +23,7 @@ const PricePage = () => {
     files: 'inactive',
   });
   const [selectedService, setSelectedService] = useState(services[0]);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [selectedFileFormat, setSelectedFileFormat] = useState(fileFormat[0]);
   const [difficulty, setDifficulty] = useState('basic');
   const [selectedPlan, setSelectedPlan] = useState({});
@@ -98,6 +99,7 @@ const PricePage = () => {
             </div>
           </div>
           <SelectServices
+            setImageLoaded={setImageLoaded}
             activity={activity}
             setActivity={setActivity}
             services={services}
@@ -107,6 +109,8 @@ const PricePage = () => {
           {selectedService.difficulty ? (
             <>
               <SelectDifficulty
+                imageLoaded={imageLoaded}
+                setImageLoaded={setImageLoaded}
                 activity={activity}
                 setActivity={setActivity}
                 selectedService={selectedService}

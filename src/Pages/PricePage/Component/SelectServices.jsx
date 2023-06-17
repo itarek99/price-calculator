@@ -5,7 +5,7 @@ import { HiChevronUpDown } from 'react-icons/hi2';
 import LeftSide from './LeftSide';
 import ToolTip from './ToolTip';
 
-const SelectServices = ({ activity, setActivity, services, selectedService, setSelectedService }) => {
+const SelectServices = ({ setImageLoaded, activity, setActivity, services, selectedService, setSelectedService }) => {
   return (
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.services} listNumber={1}>
@@ -21,6 +21,7 @@ const SelectServices = ({ activity, setActivity, services, selectedService, setS
           <Listbox
             value={selectedService}
             onChange={(value) => {
+              setImageLoaded(false);
               setSelectedService(value);
               setActivity((prevState) => ({ ...prevState, services: 'success', difficulty: 'pending' }));
             }}
