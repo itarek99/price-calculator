@@ -1,15 +1,27 @@
 import { Listbox, Transition } from '@headlessui/react';
+import { PayPalButtons } from '@paypal/react-paypal-js';
 import { Fragment, useState } from 'react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 import fileFormat from '../../../data/fileFormat';
 import LeftSide from './LeftSide';
 import ToolTip from './ToolTip';
+
+import paypalLogo from '../../../assets/paypal.svg';
+
 const UploadFile = ({
   activity,
   setActivity,
+  totalImage,
+  selectedService,
+  difficulty,
+  selectedPlan,
   email,
   imageUrl,
-  handlePlaceOrder,
+  message,
+  name,
+  createOrder,
+  onApprove,
+  onError,
   setImageUrl,
   setName,
   setEmail,
@@ -153,12 +165,28 @@ const UploadFile = ({
         </div>
 
         <div className='mt-12 xl:mt-16'>
-          <button
-            onClick={handlePlaceOrder}
-            className='w-full xl:w-auto uppercase bg-[#2970FB] text-white font-bold text-base xl:text-xl py-3 xl:py-4 px-10 rounded-lg'
-          >
-            Place Order
-          </button>
+          <div className='h-[55px] w-full xl:w-auto max-w-[750px] xl:text-xl rounded bg-[#0070ba] relative flex justify-center items-center'>
+            <img src={paypalLogo} alt='paypal logo' className='h-6' />
+            <PayPalButtons
+              forceReRender={[
+                totalImage,
+                selectedService,
+                difficulty,
+                selectedPlan,
+                message,
+                name,
+                imageUrl,
+                email,
+                selectedFileFormat,
+              ]}
+              createOrder={createOrder}
+              onApprove={onApprove}
+              onError={onError}
+              className='w-full xl:w-auto xl:text-xl absolute inset-0'
+              fundingSource='paypal'
+              style={{ layout: 'vertical', color: 'blue', label: 'checkout', height: 55 }}
+            />
+          </div>
         </div>
       </div>
     </div>
