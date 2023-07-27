@@ -6,6 +6,7 @@ import fileFormat from '../../../data/fileFormat';
 import LeftSide from './LeftSide';
 import ToolTip from './ToolTip';
 
+import cardLogo from '../../../assets/card.svg';
 import paypalLogo from '../../../assets/paypal.svg';
 
 const UploadFile = ({
@@ -38,16 +39,21 @@ const UploadFile = ({
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.files} listNumber={5}>
         <div className='flex items-center gap-2'>
-          <p className='font-semibold'>Upload Files</p>
+          <p className='font-semibold font-roboto'>Upload Files</p>
           <ToolTip toolTipText='Fill out the form and attach the image file link so that we can download it quickly and easily. Image file types should be: JPG (preferable), RAW, PSD, PNG, TIFF, or CR2.' />
         </div>
-        <p className='text-sm'>Send your file and place your order seamlessly.</p>
+        <p className='text-sm font-roboto'>Send your file and place your order seamlessly.</p>
       </LeftSide>
 
       <div className='col-span-12 xl:col-span-7 z-10'>
-        <div className='ml-12 xl:ml-0 p-4 xl:p-8 bg-white rounded-lg'>
+        <div className='ml-12 xl:ml-0 p-4 xl:p-8 !bg-white rounded-lg'>
+          <div>
+            <p className='font-bold text:xl lg:text-2xl'>
+              Order Now <span className='font-normal text-sm'>(Please fill out the *required fields)</span>
+            </p>
+          </div>
           <div className='mt-4 xl:mt-6'>
-            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='name'>
+            <label className='text-sm xl:text-base font-medium mb-1.5 block font-roboto' htmlFor='name'>
               Name
             </label>
             <div className='flex'>
@@ -56,12 +62,12 @@ const UploadFile = ({
                 placeholder='Your Full Name'
                 id='name'
                 type='text'
-                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
+                className='border border-solid border-gray-200 !bg-white text-sm xl:text-base p-3 grow !rounded-lg outline-none focus:!border-primary font-roboto'
               />
             </div>
           </div>
           <div className='mt-4 xl:mt-6'>
-            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='email'>
+            <label className='text-sm xl:text-base font-medium mb-1.5 block font-roboto' htmlFor='email'>
               *Email
             </label>
             <div className='flex'>
@@ -75,12 +81,12 @@ const UploadFile = ({
                 placeholder='Your Email Address'
                 id='email'
                 type='email'
-                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
+                className='border border-solid border-gray-200 !bg-white text-sm xl:text-base p-3 grow !rounded-lg outline-none focus:!border-primary font-roboto'
               />
             </div>
           </div>
           <div className='mt-4 xl:mt-6'>
-            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='imageUpload'>
+            <label className='text-sm xl:text-base font-medium mb-1.5 block font-roboto' htmlFor='imageUpload'>
               *Image URL (Share your image link: Google Drive, Dropbox, Wetransfer, Any Others)
             </label>
             <div className='flex'>
@@ -94,13 +100,13 @@ const UploadFile = ({
                 placeholder='Please paste your image URL here...'
                 id='imageUpload'
                 type='text'
-                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
+                className='border border-solid border-gray-200 !bg-white text-sm xl:text-base p-3 grow !rounded-lg outline-none focus:!border-primary font-roboto'
               />
             </div>
           </div>
 
           <div className='mt-4 xl:mt-6'>
-            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='imageUpload'>
+            <label className='text-sm xl:text-base font-medium mb-1.5 block font-roboto' htmlFor='imageUpload'>
               *Return File Format
             </label>
             <div>
@@ -115,8 +121,8 @@ const UploadFile = ({
                 }}
               >
                 <div className='relative mt-1'>
-                  <Listbox.Button className='border focus:border-primary relative w-full cursor-default rounded-lg p-3 text-left bg-white focus-visible:outline-none'>
-                    <span className='block truncate text-sm xl:text-base'>{selectedFileFormat.name}</span>
+                  <Listbox.Button className='border border-solid border-gray-200 focus:!border-primary hover:!border-primary hover:!text-neutral-950 focus:!text-neutral-950  relative w-full cursor-default rounded-lg p-3 text-left !bg-white focus-visible:outline-none'>
+                    <span className='block truncate text-sm xl:text-base font-roboto'>{selectedFileFormat.name}</span>
                     <span className='pointer-events-none absolute inset-y-0 right-1 xl:right-2 flex items-center'>
                       <HiChevronUpDown className='h-8 w-8 text-gray-400' aria-hidden='true' />
                     </span>
@@ -127,12 +133,12 @@ const UploadFile = ({
                     leaveFrom='opacity-100'
                     leaveTo='opacity-0'
                   >
-                    <Listbox.Options className='absolute mt-2 max-h-48 z-10 w-full overflow-auto rounded-md bg-white text-sm xl:text-base shadow-lg focus-visible:outline-none'>
+                    <Listbox.Options className='absolute mt-2 max-h-48 z-10 w-full overflow-auto rounded-md !bg-white text-sm xl:text-base shadow-lg focus-visible:outline-none'>
                       {fileFormat.map((format, formatId) => (
                         <Listbox.Option
                           key={formatId}
                           className={({ active }) =>
-                            `relative cursor-default select-none py-2.5 px-4 ${
+                            `relative cursor-default select-none py-2.5 px-4 font-roboto ${
                               active ? 'bg-secondary/20 text-gray-700' : 'text-gray-900'
                             }`
                           }
@@ -149,8 +155,8 @@ const UploadFile = ({
           </div>
 
           <div className='mt-4 xl:mt-6'>
-            <label className='text-sm xl:text-base font-medium mb-1.5 block' htmlFor='imageUpload'>
-              Your Message
+            <label className='text-sm xl:text-base font-medium mb-1.5 block font-roboto' htmlFor='imageUpload'>
+              Your Instruction
             </label>
             <div className='flex'>
               <textarea
@@ -158,7 +164,7 @@ const UploadFile = ({
                 placeholder='Type your instruction here...'
                 id='imageUpload'
                 rows={3}
-                className='border text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary'
+                className='border border-solid border-gray-200 !bg-white text-sm xl:text-base p-3 grow rounded-lg outline-none focus:border-primary font-roboto'
               />
             </div>
           </div>
@@ -166,7 +172,7 @@ const UploadFile = ({
 
         <div className='mt-12 xl:mt-16'>
           <div className='h-[55px] w-full xl:w-auto max-w-[750px] xl:text-xl rounded bg-[#0070ba] relative flex justify-center items-center'>
-            <img src={paypalLogo} alt='paypal logo' className='h-6' />
+            <img src={paypalLogo} alt='paypal logo' className='h-6 mt-[1px]' />
             <PayPalButtons
               forceReRender={[
                 totalImage,
@@ -185,6 +191,29 @@ const UploadFile = ({
               className='w-full xl:w-auto xl:text-xl absolute inset-0'
               fundingSource='paypal'
               style={{ layout: 'vertical', color: 'blue', label: 'checkout', height: 55 }}
+            />
+          </div>
+          <div className='h-[55px] mt-4 w-full xl:w-auto max-w-[750px] xl:text-xl rounded bg-[#2C2E2F] relative flex justify-center items-center'>
+            <img src={cardLogo} alt='paypal logo' className='h-6 mt-[1px]' />
+            <PayPalButtons
+              onShippingChange={() => {}}
+              forceReRender={[
+                totalImage,
+                selectedService,
+                difficulty,
+                selectedPlan,
+                message,
+                name,
+                imageUrl,
+                email,
+                selectedFileFormat,
+              ]}
+              createOrder={createOrder}
+              onApprove={onApprove}
+              onError={onError}
+              className='w-full xl:w-auto xl:text-xl absolute inset-0'
+              fundingSource='card'
+              style={{ layout: 'vertical', color: 'black', label: 'checkout', height: 55 }}
             />
           </div>
         </div>

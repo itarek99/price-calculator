@@ -41,35 +41,6 @@ const PricePage = () => {
     setSelectedPlan(selectedService.difficulty ? selectedService.difficulty[difficulty].pricing[2] : null);
   }, [selectedService, difficulty]);
 
-  const emailRegEx =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-  const handlePlaceOrder = () => {
-    const orderInfo = {
-      name,
-      email,
-      selectedService: selectedService.name,
-      difficulty,
-      selectedPlan,
-      returnFileType: selectedFileFormat.name,
-      imageUrl,
-      message,
-      totalImage,
-      totalPrice: selectedPlan.price * totalImage,
-    };
-
-    console.log(orderInfo);
-
-    if (!email.match(emailRegEx)) {
-      toast.error('Please provide valid Email');
-      return;
-    }
-    if (!imageUrl) {
-      toast.error('Please provide Image Url');
-      return;
-    }
-  };
-
   // Paypal Code
 
   const createOrder = (data, actions) => {
@@ -93,9 +64,10 @@ const PricePage = () => {
       const { payer, purchase_units, status } = details;
       emailjs.send(
         'pricing_service',
-        'pricing_details',
+        'pricing_template',
         {
           payer_email: payer.email_address,
+          reply_to: email || payer.email_address,
           name: name,
           email: email,
           payer_name: payer.name.given_name + ' ' + payer.name.surname,
@@ -113,8 +85,6 @@ const PricePage = () => {
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-
-      console.log(details);
     });
   };
   const onError = () => {
@@ -128,7 +98,7 @@ const PricePage = () => {
       }}
     >
       <Heading />
-      <main className='relative bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[39.5%]  via-[#F7F9FF] via-[38%] to-[#F7F9FF] to-100% pb-16 pt-12'>
+      <main className='font-roboto relative bg-[#F7F9FF] xl:bg-gradient-to-r from-[#FCFCFC] from-[39.5%]  via-[#F7F9FF] via-[38%] to-[#F7F9FF] to-100% pb-16 pt-12'>
         <div className='container mx-auto px-4 xl:px-0'>
           <div>
             <h2 className='text-3xl font-bold'>Get Your Estimate</h2>
@@ -198,7 +168,6 @@ const PricePage = () => {
                 imageUrl={imageUrl}
                 message={message}
                 selectedFileFormat={selectedFileFormat}
-                handlePlaceOrder={handlePlaceOrder}
                 selectedService={selectedService}
                 difficulty={difficulty}
                 totalImage={totalImage}
@@ -230,7 +199,7 @@ const PricePage = () => {
       </main>
       <FAQSection />
       <CTASection />
-      <ToastContainer />
+      <ToastContainer style={{ zIndex: 999999 }} />
     </PayPalScriptProvider>
   );
 };

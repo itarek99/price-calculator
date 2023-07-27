@@ -6,10 +6,10 @@ const TurnaroundTime = ({ activity, setActivity, difficulty, selectedService, se
     <div className='grid grid-cols-12 mt-12'>
       <LeftSide activity={activity.time} listNumber={3}>
         <div className='flex items-center gap-2'>
-          <p className='font-semibold'>Turnaround Time</p>
+          <p className='font-semibold font-roboto'>Turnaround Time</p>
           <ToolTip toolTipText='Choose expedited delivery for projects with short deadlines or choose cost-saving options with a longer time frame.' />
         </div>
-        <p className='text-sm'>Save money if you have time to wait.</p>
+        <p className='text-sm font-roboto'>Save money if you have time to wait.</p>
       </LeftSide>
 
       {selectedService.difficulty && (
@@ -33,12 +33,12 @@ const TurnaroundTime = ({ activity, setActivity, difficulty, selectedService, se
                     />
                     <label
                       htmlFor={price?.time + priceIdx}
-                      className={`flex items-center xl:cursor-pointer select-none ${
+                      className={`flex items-center xl:cursor-pointer select-none font-roboto ${
                         selectedPlan?.time === price?.time ? 'text-primary font-medium' : 'text-grey'
                       }`}
                     >
                       <span
-                        className={`w-4 h-4 rounded-full mr-2.5 border-2 ${
+                        className={`w-4 h-4 rounded-full mr-2.5 border-2 !border-solid ${
                           selectedPlan?.time === price?.time ? 'border-primary bg-primary' : 'border-grey'
                         }`}
                       ></span>

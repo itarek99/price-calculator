@@ -46,11 +46,13 @@ const FAQSection = () => {
               <Disclosure key={faq.id}>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className='flex w-full items-center gap-3 py-4 text-left text-sm font-medium border-b border-gray-500 focus-visible:outline-none'>
+                    <Disclosure.Button className=' flex w-full items-center gap-3 py-4 text-left text-sm font-medium !border-0 !border-b !border-gray-500 focus-visible:outline-none'>
                       {open ? <FaMinus className='h-4 w-4' /> : <FaPlus className='h-4 w-4' />}
-                      <span className='xl:text-lg font-medium'>{faq.title}</span>
+                      <span className='xl:text-lg font-medium font-roboto'>{faq.title}</span>
                     </Disclosure.Button>
-                    <Disclosure.Panel className='px-4 pt-4 pb-2 text-gray-600 '>{faq.details}</Disclosure.Panel>
+                    <Disclosure.Panel className='px-4 pt-4 pb-2 text-gray-600 font-roboto'>
+                      {faq.details}
+                    </Disclosure.Panel>
                   </>
                 )}
               </Disclosure>
@@ -62,7 +64,7 @@ const FAQSection = () => {
       <div className='text-center mt-12 xl:mt-20 pb-20'>
         <a
           href='https://clippingpathca.com/get-a-quote/'
-          className='bg-secondary text-base xl:text-xl px-8 py-3 xl:py-4 capitalize text-white font-medium rounded-lg'
+          className='bg-secondary text-base xl:text-xl px-8 py-3 xl:py-4 capitalize !no-underline !text-white font-medium rounded-lg'
         >
           Request a custom quote
         </a>

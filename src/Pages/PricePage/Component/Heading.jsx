@@ -4,19 +4,19 @@ import moneyBag from '../../../assets/money-bag.png';
 
 const Heading = () => {
   return (
-    <section className='container mx-auto py-20 relative'>
+    <section className='font-roboto container mx-auto py-20 relative'>
       <div className='flex justify-center'>
-        <h2 className='text-3xl xl:text-5xl font-semibold relative'>
-          Flexible <span className='text-orange-500'>Pricing</span>
+        <h2 className='text-3xl xl:text-5xl font-semibold relative font-roboto'>
+          Flexible <span className='text-orange-500'>Pricing</span> & Order
           <img
-            className='h-8 w-8 xl:h-10 xl:w-10 absolute -top-4 -right-16 xl:-right-24'
+            className='hidden lg:block h-8 w-8 xl:h-10 xl:w-10 absolute -top-4 -right-16 xl:-right-24'
             src={dollarIcon}
             alt='dollar icon'
           />
         </h2>
       </div>
 
-      <p className='px-3 text-bases max-w-4xl mx-auto mt-4 xl:mt-7 xl:text-lg text-gray-500 text-center'>
+      <p className='font-roboto px-3 text-bases max-w-4xl mx-auto mt-4 xl:mt-7 xl:text-lg text-gray-500 text-center'>
         The No. #1 Photo Editing Service Provider.{' '}
         <span className='text-tertiary bg-tertiary/5'>If 16,000+ customers trust us - Why not you?</span> We care about
         your needs, prices, and time limitations. We are offering{' '}

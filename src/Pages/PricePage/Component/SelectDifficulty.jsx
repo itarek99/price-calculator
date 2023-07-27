@@ -104,7 +104,7 @@ const SelectDifficulty = ({
                     }`}
                   >
                     <span
-                      className={`w-4 h-4 rounded-full mr-2.5 border-2 ${
+                      className={`w-4 h-4 rounded-full mr-2.5 border-2 !border-solid ${
                         difficulty === item ? 'border-primary bg-primary' : 'border-grey'
                       }`}
                     ></span>
@@ -135,7 +135,7 @@ const SelectDifficulty = ({
                   onLoad={() => {
                     setImageLoaded(true);
                   }}
-                  className='object-contain min-h-0 border border-gray-700'
+                  className='object-contain min-h-0 border border-solid border-gray-700'
                   src={selectedService.difficulty[difficulty].thumbnail}
                 />
               </div>

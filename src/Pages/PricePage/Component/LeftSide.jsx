@@ -35,7 +35,7 @@ const LeftSide = ({ activity, children, listNumber }) => {
         <div
           className={`h-10 w-10 rounded-full text-white flex justify-center items-center flex-shrink-0  ${serialClasses()}`}
         >
-          <span className='text-lg font-bold'>{activity === 'success' ? <FaCheck /> : listNumber}</span>
+          <span className='font-roboto text-lg font-bold'>{activity === 'success' ? <FaCheck /> : listNumber}</span>
         </div>
         <div>{children}</div>
 
